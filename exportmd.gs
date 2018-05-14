@@ -828,9 +828,12 @@ function processParagraph(index, element, inSrc, imageCounter, listCounters, ima
     return result;
   }
   
-  var ind_f = element.getIndentFirstLine();
-  var ind_s = element.getIndentStart();
-  var ind_e = element.getIndentEnd();
+  var ind_f = 0;
+  var ind_s = 0;
+  var ind_e = 0;
+//  var ind_f = element.getIndentFirstLine();
+//  var ind_s = element.getIndentStart();
+//  var ind_e = element.getIndentEnd();
   var i_fse = ['ind_f','ind_s','ind_e'];
   var indents = {};
   for (indt=0;indt<i_fse.length;indt++) {
@@ -876,7 +879,7 @@ function processParagraph(index, element, inSrc, imageCounter, listCounters, ima
   }
   
   var indent_prefix = '> ';
-# var indent_alt_prefix = '> <sub>';
+  var indent_alt_prefix = '> <sub>';
   if (inIndent && !inSrc) {
     if (/^#*\s/.test(result.text)) { // don't subscript-prefix header prefix
       result.text = indent_alt_prefix + result.text;
